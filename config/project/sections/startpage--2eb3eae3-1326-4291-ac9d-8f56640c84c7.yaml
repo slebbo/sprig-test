@@ -1,0 +1,12 @@
+defaultPlacement: end
+enableVersioning: true
+handle: startpage
+name: Startpage
+propagationMethod: all
+siteSettings:
+  049a27ce-1f46-4578-91a2-ca5476e3f21e: # Sprig Test
+    enabledByDefault: true
+    hasUrls: true
+    template: index.twig
+    uriFormat: __home__
+type: single

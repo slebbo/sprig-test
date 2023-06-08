@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en-US
+name: 'Sprig Test'
+primary: true
+siteGroup: 75ae2cee-55fe-4b60-b7a3-44bdfcbb3f53 # Sprig Test
+sortOrder: 1

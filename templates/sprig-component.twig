@@ -1,0 +1,28 @@
+{% set entry = craft.entries.id(entryId).one() %}
+
+<form id="sprig-form" sprig s-trigger="change from:.input-change, submit" s-method="post" s-action="entries/save-entry">
+  {{ hiddenInput('entryId', entry.id) }}
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Text</th>
+        <th>Number</th>
+      </tr>
+    </thead>
+    <thead>
+      {% for row in entry.aTableField %}
+        <tr>
+          <td>{{ input('text', "fields[aTableField][#{loop.index0}][text]", row.text) }}</td>
+          <td>{{ input('number', "fields[aTableField][#{loop.index0}][number]", row.number) }}</td>
+        </tr>
+      {% endfor %}
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan="2" x-data="addRandomRowData()">
+          <button type="button" x-on:click="add">Add new row with alpine</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</form>

@@ -1,0 +1,30 @@
+dateModified: 1686208254
+email:
+  fromEmail: sb@regnet.co
+  fromName: 'Sprig Test'
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    2eb3eae3-1326-4291-ac9d-8f56640c84c7: Startpage # Startpage
+    4c4ae689-1217-4ae0-9d97-1bfa99eb2f34: Common # Common
+    049a27ce-1f46-4578-91a2-ca5476e3f21e: 'Sprig Test' # Sprig Test
+    75ae2cee-55fe-4b60-b7a3-44bdfcbb3f53: 'Sprig Test' # Sprig Test
+    193d011f-565c-4ed6-af9b-a3303700dd42: 'A table field' # A table field
+    b8aac777-059c-474f-957b-f86063f197fe: Startpage # Startpage
+plugins:
+  sprig:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+system:
+  edition: solo
+  live: true
+  name: 'Sprig Test'
+  schemaVersion: 4.4.0.4
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

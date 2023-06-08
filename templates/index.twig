@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <title>Sprig Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+  </head>
+  <body>
+    <main>{{ sprig('sprig-component.twig', { entryId: 2 }) }}</main>
+    {{ sprig.script }}
+    {{ actionInput('contact-form/send') }}
+    <script>
+      window.csrfTokenName = "{{craft.app.config.general.csrfTokenName|e('js')}}"
+      window.csrfTokenValue = "{{ craft.app.request.csrfToken|e('js') }}"
+      
+      window.addRandomRowData = function () {
+        return {
+          add() {
+            fetch('/actions/entries/save-entry', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                entryId: 2,
+                [window.csrfTokenName]: window.csrfTokenValue,
+                fields: {
+                  aTableField: [
+                    {
+                      text: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
+                      number: Math.floor(Math.random() * 100)
+                    }
+                  ]
+                }
+              })
+            }).then(() => {
+              const sprigForm = document.getElementById('sprig-form')
+              sprigForm.setAttribute('s-include', 'none')
+              htmx.trigger(sprigForm, 'refresh')
+            })
+          }
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </body>
+</html>
